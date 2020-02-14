@@ -4,18 +4,22 @@ import {
     Text,
     View,
     StyleSheet,
+    TouchableOpacity,
+    Alert
 } from 'react-native';
 import Drug from '../assets/drug.png';
 
 
 export default function CategoryListItem(props)
 {
-    const {category} = props;
+    const {category, onPress} = props;
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{category.name}</Text>
-            <Image source={Drug} style={styles.categoryImg} ></Image>
-        </View>
+        <TouchableOpacity activeOpacity={0.3} onPress={onPress}>
+            <View style={styles.container}>
+                <Text style={styles.title}>{category.name}</Text>
+                <Image source={Drug} style={styles.categoryImg} ></Image>
+            </View>
+        </TouchableOpacity>
     )
 }
 
