@@ -10,8 +10,11 @@ const Stack = createStackNavigator();
 function AppNavigator() {
     return (
       <NavigationContainer>
+        {/* initialRouteName is set default component or screen 
+        options is set title header for component navigation */}
         <Stack.Navigator initialRouteName="Categories">
-          <Stack.Screen name="Category" component={Category} />
+          <Stack.Screen name="Category" component={Category} 
+            options={({route}) => ({title: route.params.name})}/> 
           <Stack.Screen name="Categories" component={Categories} />
         </Stack.Navigator>
       </NavigationContainer>
