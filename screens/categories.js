@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
   },
   containerScrollView: {
     width: '100%',
-    // padding: 20
   }
 });
 
