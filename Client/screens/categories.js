@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import CategoryListItem from '../components/categoryListItem';
+import axios from 'axios';
 
 
 class Categories extends Component {
   constructor(props)
   {
     super(props);
-
     this.state = {
-      categories: [
-        {id: 1, name: "Kem Đánh Răng"},
-        {id: 2, name: "Tăm Xỉa Răng"},
-        {id: 3, name: "Bàn Đánh Răng"},
-        {id: 4, name: "Chỉ Xỉa Răng"},
-        {id: 5, name: "Nước Xúc Răng"},
-      ]
-    }
+      categories: []
+    };  
+  }
 
+  componentDidMount()
+  {
+    axios.get('http://192.168.1.237:3000/products')
+    .then(res => this.setState({categories: [...res.data]}))
+    .catch(err =>
+    console.error(err)) 
   }
   render() 
   {
